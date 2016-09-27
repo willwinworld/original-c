@@ -1,4 +1,5 @@
 # include <stdio.h>
+# include <stdlib.h>
 
 int convertedNumber[64];  
 long int numberToConvert;
@@ -9,6 +10,10 @@ void getNumberAndBase(void)
 {
 	printf("Number to be converted? ");
 	scanf("%li", &numberToConvert);  // long int 
+	if (numberToConvert == 0)
+    {
+    	exit(0);
+	}
 	
 	printf("Base?");
 	scanf("%i", &base); // base to be converted
