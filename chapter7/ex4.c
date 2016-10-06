@@ -1,23 +1,31 @@
 # include <stdio.h>
 
+float absoluteValue (float x)
+{
+	if (x<0)
+		x = -x;
+	return x;
+}
+
+float squareRoot (float x)
+{
+	const float epsilon = .00001;
+	float guess = 1.0;
+	
+	while (absoluteValue(guess*guess-x) >= epsilon)
+	{
+	
+		guess = (x/guess + guess) / 2.0;
+		printf("%f\n", guess);
+    }
+	return guess;
+}
+
 int main(void)
 {
-	float array[10], number, sum, average;
-	int i;
+	printf("squareRoot(2.0) = %f\n", squareRoot(2.0));
+	printf("squareRoot(144.0) = %f\n", squareRoot(144.0));
+	printf("squareRoot(17.5) = %f\n", squareRoot(17.5));
 	
-	for (i=0; i<10; i++)
-	{
-		printf("Input a float number: ");
-		scanf("%f", &number);
-		array[i] = number;
-	}
-	
-	sum = 0.0;
-	for (i=0; i<10; i++)
-	{
-		sum += array[i]; 
-	}
-	average = sum / 10;
-    printf("The average of 10 numbers is %f: ", average);
-    return 0;
+	return 0;
 }

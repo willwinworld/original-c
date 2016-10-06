@@ -1,51 +1,23 @@
-#include <stdio.h>
-#include <stdbool.h>
+# include <stdio.h>
+
 int main(void)
 {
-	float value, acc;
-	char operator;
-	bool onoff = 1;
+	float array[10], number, sum, average;
+	int i;
 	
-	acc = 0;
-	printf("Type in your expression.\n");
-	while ( onoff == 1)
+	for (i=0; i<10; i++)
 	{
-		scanf("%f %c", &value, &operator);
-		switch (operator)
-		{
-			case 'S':
-				acc = value;
-				printf("The result is %f\n", acc);
-				break;
-			case '+':
-				acc += value;
-				printf("The result is %f\n", acc);
-				break;
-			case '-':
-				acc -= value;
-				printf("The result is %f\n", acc);
-				break;
-			case '*':
-				acc *= value;
-				printf("The result is %f\n", acc);
-				break;
-			case '/':
-				if (value == 0)
-					printf("divisor can't be zero!\n");
-				else
-					acc /= value;
-					printf("The result is %f\n", acc);
-				break;
-			case 'E':
-				printf("End of program.\n");
-				onoff = 0;
-				break;
-			default:
-				printf("Unknown operator.\n");
-				onoff = 0;
-				break;
-		}
+		printf("Input a float number: ");
+		scanf("%f", &number);
+		array[i] = number;
 	}
-	return 0;
+	
+	sum = 0.0;
+	for (i=0; i<10; i++)
+	{
+		sum += array[i]; 
+	}
+	average = sum / 10;
+    printf("The average of 10 numbers is %f: ", average);
+    return 0;
 }
-

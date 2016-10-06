@@ -26,7 +26,7 @@ struct time timeUpdate(struct time now)
 {
 	++now.seconds; // 将now中的时间"抬高"1秒 
 	
-	if (now.seconds == 60)
+	if (now.seconds == 60)  
 	{
 		now.seconds = 0;
 		++now.minutes;

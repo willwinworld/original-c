@@ -1,40 +1,19 @@
-#include <stdio.h>
+# include <stdio.h>
 
 int main(void)
 {
-	int number, right_digit;
-	int real_number;
+	int numbers[10] = {1, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+	int i, j;
 	
-	real_number = 0;
-	printf("Enter your number.\n");
-	scanf("%i", &number);
-	
-	if ( number > 0 )
-	    {
-		real_number = number;
-		do
-		{   
-			right_digit = real_number % 10;
-			printf("%i", right_digit);
-			real_number = real_number / 10;
-		}
-		while ( real_number != 0);
-		} 
-		
-	else if ( number < 0 )
-	    {
-		real_number = - number;
-		printf("%c", '-');
-		do
-		{   
-			right_digit = real_number % 10;
-			printf("%i", right_digit);
-			real_number = real_number / 10;
-		}
-	    while ( real_number != 0);
-        }
+	for (j=0; j<10; ++j)
+		for (i=0; i<j; ++i)
+			numbers[j] += numbers[i];
+			
+	for (j=0; j<10; ++j)
+		printf("%i ", numbers[j]);
 		
 	printf("\n");
 	
 	return 0;
 }
+

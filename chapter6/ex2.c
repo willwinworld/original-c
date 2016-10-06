@@ -1,16 +1,23 @@
-#include <stdio.h>
+# include <stdio.h>
 
 int main(void)
 {
-	int value1, value2;
+	int values[10], index;
+	for (index=0; index<10; index++)
+	{
+		values[index] = 0;
+	}
 	
-	printf("Enter two numbers:\n");
-	scanf ("%i %i", &value1, &value2);
+	values[0] = 197;
+	values[2] = -100;
+	values[5] = 350;
+	values[3] = values[0] + values[5];
+	values[9] = values[5] / 10;
+	--values[2];
 	
-	if ( value1 % value2 == 0 ) 
-		printf("%i is evenly divisible by %i\n", value1, value2);
-	else
-		printf("%i is not evenly divisible by %i\n", value1, value2);
-		
+	for (index=0; index<10; index++)
+	{
+		printf("values[%i] = %i\n", index, values[index]);
+	}
 	return 0;
 }

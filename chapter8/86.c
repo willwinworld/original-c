@@ -1,30 +1,50 @@
-# include <stdio.h>
+#include <stdio.h>
 
-int gcd (int u, int v)
+struct time
 {
-	int temp;
+	int hour;
+	int minutes;
+	int seconds;
+};
+
+int main(void)
+{
+	struct time timeUpdate (struct time now);
+	struct time testTimes[5] = 
+		{ {11, 59, 59}, {12, 0, 0}, {1, 29, 59},
+		  {23, 59, 59}, {19, 12, 27}};
+	int i;
 	
-	while (v!=0)
+	for (i=0; i<5; ++i)
 	{
-		temp = u % v;
-		u = v;
-		v = temp;
+		printf("Time is %.2i:%.2i:%.2i", testTimes[i].hour, testTimes[i].minutes, testTimes[i].seconds);
+		
+		testTimes[i] = timeUpdate(testTimes[i]);
+		
+		printf("...one second later it's %.2i:%.2i:%.2i\n",
+			testTimes[i].hour, testTimes[i].minutes, testTimes[i].seconds);
 	}
 	
-	return u;
+	return 0;
 }
 
-int main (void)
+struct time timeUpdate(struct time now)
 {
-	int result;
+	++now.seconds;
 	
-	result = gcd(150, 35);
-	printf("The gcd of 150 and 35 is %i\n", result);
+	if (now.seconds == 60)
+	{
+		now.seconds = 0;
+		++now.minutes;
+		if (now.minutes == 60)
+		{
+			now.minutes = 0;
+			++now.hour;
+			
+			if (now.hour == 24)
+				now.hour = 0;	
+		} 
+	}
 	
-	result = gcd(1026, 405);
-	printf("The gcd of 1026 and 405 is %i\n", result);
-	
-	printf("The gcd of 83 and 240 is %i\n", gcd(83, 240));
-	
-	return 0;
+	return now;
 }

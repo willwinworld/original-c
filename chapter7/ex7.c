@@ -1,28 +1,26 @@
 # include <stdio.h>
 
-int main (void)  
-{  
-        int  P[151], i, j;  
-        int  n = 150;  
-  
-        for (i = 2; i <= n; ++i)  
-                P[i] = 0;  
-  
-        i = 2;  
-  
-        while (i <= n) {  
-                if (P[i] == 0)  
-                        printf ("%i  ", i);  
-  
-                j = 1;  
-  
-                while (i * j <= n) {  
-                        P[i * j] = 1;  // filter
-                        ++j;  
-                }  
-  
-                ++i;  
-        }  
-  
-        return 0;  
-}  
+long int x_to_the_n(int x, int n)
+{
+	int i;
+	long int result=1;
+	
+    for(i=1; i<=n; ++i)
+    {
+    	result *= x; // pure loop
+	}
+		
+	return result;
+}
+
+int main(void)
+{
+	long int result;
+	long int x_to_the_n(int x, int n);
+	int xuser=2, nuser=0;
+	
+	result = x_to_the_n(xuser, nuser);
+	printf("%i of %i integer power is %i", xuser, nuser, result);
+	
+	return 0;
+}

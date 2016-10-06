@@ -1,28 +1,28 @@
-#include <stdio.h>
-#include <stdbool.h>
+# include <stdio.h>
 
-int main(void)
-{
-	int p, d;
-	bool isPrime;
-	
-	for (p = 1; p < 50; p += 2)
-	{
-		isPrime = true;
-		for (d = 2; d < p; ++d)
-		{
-			if ( p % d == 0)
-				isPrime = false;
-		}
-		
-		if (p == 1)
-			printf("\n");
-		if (p == 2)
-			printf("%i ", 2);
-		else if(isPrime)
-			printf("%i ", p);
-	}
-	
-	return 0;
-}
-
+int main (void)  
+{  
+        int  P[151], i, j;  
+        int  n = 150;  
+  
+        for (i = 2; i <= n; ++i)  
+                P[i] = 0;  
+  
+        i = 2;  
+  
+        while (i <= n) {  
+                if (P[i] == 0)  
+                        printf ("%i  ", i);  
+  
+                j = 1;  
+  
+                while (i * j <= n) {  
+                        P[i * j] = 1;  // filter
+                        ++j;  
+                }  
+  
+                ++i;  
+        }  
+  
+        return 0;  
+}  

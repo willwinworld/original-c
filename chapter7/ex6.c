@@ -1,24 +1,32 @@
 # include <stdio.h>
 
+float absoluteValue(float x)
+{
+	if (x < 0)
+		x = -x;
+	return x;
+}
+
+double squareRoot (double x)
+{
+	const double epsilon = .000000001;  // 8¸ö×Ö½Ú
+	double guess = 1.0;
+	
+	while (absoluteValue(guess * guess - x) >= epsilon)
+	{
+		guess = (x / guess + guess) / 2.0;
+	}
+	
+	return guess;
+}
+
 int main(void)
 {
-	int F0, F1, F2, i, max;  // F1, F2 to store the previous Fibonacci, F3 to store the current
-	
-	F0 = 0;
-	F1 = 1;
-	
-    printf("Input Fibonacci's max boundary: ");
-    scanf("%i", &max);
+	printf("squareRoot (2.0) = %f\n", squareRoot (2.0));
+    printf("squareRoot (144.0) = %f\n", squareRoot (144.0));
+    printf("squareRoot (17.5) = %f\n", squareRoot (17.5));
     
-    F2 = 0;
-    for (i=0; i<max; i++)
-	{
-		F2 = F0 + F1;
-		printf("%i  ", F2);
-		F0 = F1;
-		F1 = F2;
-	}
-	return 0;
+    return 0;
 }
 
 

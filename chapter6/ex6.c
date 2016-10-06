@@ -1,58 +1,23 @@
-#include <stdio.h>
+# include <stdio.h>
 
 int main(void)
 {
-	int number, right_digit;
+	int F0, F1, F2, i, max;  // F1, F2 to store the previous Fibonacci, F3 to store the current
 	
-	printf("Type in your number.\n");
-	scanf("%i", &number);
-	if ( number == 0)
-		{
-			printf("zero\n");	
-		}
-	else
+	F0 = 0;
+	F1 = 1;
+	
+    printf("Input Fibonacci's max boundary: ");
+    scanf("%i", &max);
+    
+    F2 = 0;
+    for (i=0; i<max; i++)
 	{
-	    do
-	    {
-	    	right_digit = number % 10;
-	    	switch (right_digit)
-	    	{
-	    		case 0:
-					printf("zero ");
-					break;
-				case 1:
-					printf("one ");
-					break;
-				case 2:
-					printf("two ");
-					break;
-				case 3:
-					printf("three ");
-					break;
-				case 4:
-					printf("four ");
-					break;
-				case 5:
-					printf("five ");
-					break;
-				case 6:
-					printf("six ");
-					break;
-				case 7:
-					printf("seven ");
-					break;
-				case 8:
-					printf("eight ");
-					break;
-				case 9:
-					printf("nine ");
-					break;	
-			}
-	    	number = number / 10;
-		}
-		while ( number != 0);
+		F2 = F0 + F1;
+		printf("%i  ", F2);
+		F0 = F1;
+		F1 = F2;
 	}
-     
 	return 0;
 }
 
