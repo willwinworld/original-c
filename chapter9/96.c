@@ -22,7 +22,7 @@ void readLine(char buffer[])
 	
 	do
 	{
-		character = getchar();
+		character = getchar();  // getchar()ÖÕ¶Ë¶ÁÈëµ¥¸ö×Ö·û 
 		buffer[i] = character;
 		++i;
 	}
