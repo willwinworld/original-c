@@ -34,10 +34,13 @@ void insertString(char source[], char s[], int i)
 int main(void)
 {
 	void insertString(char source[], char s[], int i);
-//	char source[] = "the wrong son";
+//	char source[] = "the wrong son";  
 //	insertString(source, "per", 10);
 	
-	insertString("the wrong son", "per", 10);
-	
+//	char source[]; 
+//	insertString(source="the wrong son", "per", 10);  // 传递的是内存地址 
+//	insertString("the wrong son", "per", 10);  // 字符串常量在内存里是唯一的，是不允许修改的
+//  可以传进去，但不能修改，所以per可以传进去，但the wrong son传进去后会被修改，所以会报错 
+ 
 	return 0;
 }
