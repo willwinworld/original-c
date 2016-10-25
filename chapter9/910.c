@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+// https://www.tutorialspoint.com/data_structures_algorithms/bubble_sort_program_in_c.htm
 struct entry
 {
 	char word[15];
