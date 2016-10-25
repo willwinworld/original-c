@@ -36,7 +36,7 @@ void sortDictionary (int length, struct entry dictionary[length])
 		bool swapped = false;
 
 		for ( j = 0; j < length -1 - i; ++j ) {
-			if ( compareString (dictionary[j].word, dictionary[j + 1].word) == 1 ) {
+			if ( compareString (dictionary[j].word, dictionary[j + 1].word) == 1 ) {  // 不论是-1,还是1，都是true，说明要交换顺序 
 				struct entry temp = dictionary[j];
 				dictionary[j]     = dictionary[j + 1];
 				dictionary[j + 1] = temp;
