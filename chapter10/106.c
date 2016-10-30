@@ -18,7 +18,7 @@ int main(void)
 	n1.next = &n2;
 	n2.next = &n3;
 	
-	i = n1.next -> value;
+	i = n1.next -> value;  
 	printf("%i ", i);
 	
 	printf("%i\n", n2.next -> value);
