@@ -16,7 +16,7 @@ void readLine (char *buffer)
 	do
 	{
 		character = getchar ();
-		*buffer++ = character;
+	    *(buffer++) = character;  // 退出循环时，指针指向\n的下一个位置 
 	}
 	while ( character != '\n' );
 
